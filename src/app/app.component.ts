@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {HttpService} from "./shared/services/http.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatTableDataSource} from "@angular/material/table";
-import {UserData} from "./shared/interfaces/interfaces";
+import {ResponseInterface} from "./shared/interfaces/interfaces";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 
@@ -13,7 +13,7 @@ import {MatSort} from "@angular/material/sort";
 })
 export class AppComponent implements OnInit {
   displayedColumns: string[] = ['image', 'breed', 'description'];
-  dataSource!: MatTableDataSource<UserData>;
+  dataSource!: MatTableDataSource<ResponseInterface>;
   form!: FormGroup
   breeds: any
 
@@ -35,12 +35,14 @@ export class AppComponent implements OnInit {
 
   public getBreeds(): void {
     this.httpService.getBreed().subscribe({
-      next: (res) => {
+      next: (res: any) => {
         this.breeds = res
-        this.dataSource = new MatTableDataSource<UserData>(res)
+        // console.log(this.breeds)
+        this.dataSource = new MatTableDataSource<ResponseInterface>(res)
         this.dataSource.paginator = this.paginator
         this.dataSource.sort = this.sort
-      }
+      },
+      error: (err) => console.error(err)
     })
   }
 

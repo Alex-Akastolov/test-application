@@ -1,8 +1,7 @@
-export interface Interfaces {
-}
-
-export interface UserData {
-  image: string;
-  breed: string;
-  description: string;
+export interface ResponseInterface {
+  id: string,
+  name: string,
+  description: string,
+  image: object,
+  reference_image_id: string
 }

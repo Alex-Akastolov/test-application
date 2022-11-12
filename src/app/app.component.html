@@ -1,52 +1,50 @@
-<div class="body">
-  <div class="header">
-    <div class="container">
-      <mat-toolbar>
-        <span>My Application</span>
-      </mat-toolbar>
-    </div>
-  </div>
+<div class="header">
   <div class="container">
-    <form [formGroup]="form">
-      <mat-form-field appearance="fill" class="select">
-        <mat-label>Chose the breed</mat-label>
-        <mat-select #input formControlName="select">
-          <mat-option (click)="applyFilter()" *ngFor="let breed of breeds" [value]="breed.reference_image_id">
-            {{breed.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </form>
-
-    <div class="mat-elevation-z8">
-      <table [dataSource]="dataSource" mat-table matSort>
-        <!-- Image Column  -->
-        <ng-container matColumnDef="image">
-          <th *matHeaderCellDef mat-header-cell> Image</th>
-          <td *matCellDef="let row" class="row" mat-cell><img alt="" class="image" src="{{row.image.url}}"></td>
-        </ng-container>
-        <!-- Breed Column -->
-        <ng-container matColumnDef="breed">
-          <th *matHeaderCellDef mat-header-cell> Breed</th>
-          <td *matCellDef="let row" class="row" mat-cell> {{row.name}}</td>
-        </ng-container>
-        <!-- Description Column -->
-        <ng-container matColumnDef="description">
-          <th *matHeaderCellDef mat-header-cell> Description</th>
-          <td *matCellDef="let row" class="row" mat-cell> {{row.description}} </td>
-        </ng-container>
-
-        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
-        <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
-        <!-- Row shown when there is no matching data. -->
-        <tr *matNoDataRow class="mat-row">
-          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-        </tr>
-      </table>
-
-      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"
-                     pageSize="10"></mat-paginator>
-    </div>
+    <mat-toolbar>
+      <span>CAT search app</span>
+    </mat-toolbar>
   </div>
-
 </div>
+<div class="container">
+  <form [formGroup]="form">
+    <mat-form-field appearance="fill" class="select">
+      <mat-label>Chose the breed</mat-label>
+      <mat-select #input formControlName="select">
+        <mat-option (click)="applyFilter()" *ngFor="let breed of breeds" [value]="breed.reference_image_id">
+          {{breed.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+  <div class="mat-elevation-z8">
+    <table [dataSource]="dataSource" mat-table matSort>
+      <!-- Image Column   -->
+      <ng-container matColumnDef="image">
+        <th *matHeaderCellDef mat-header-cell> Image</th>
+        <td *matCellDef="let row" class="row" mat-cell><img alt="" class="image" src="{{row.image.url}}"></td>
+      </ng-container>
+      <!-- Breed Column -->
+      <ng-container matColumnDef="breed">
+        <th *matHeaderCellDef mat-header-cell> Breed</th>
+        <td *matCellDef="let row" class="row" mat-cell> {{row.name}}</td>
+      </ng-container>
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th *matHeaderCellDef mat-header-cell> Description</th>
+        <td *matCellDef="let row" class="row" mat-cell> {{row.description}} </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+      <!-- Row shown when there is no matching data. -->
+      <tr *matNoDataRow class="mat-row">
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"
+                   pageSize="10"></mat-paginator>
+  </div>
+</div>
+
