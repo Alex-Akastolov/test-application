@@ -30,8 +30,7 @@ export class AppComponent implements OnInit {
   }
 
   applyFilter() {
-    const filterValue = this.form.value.select;
-    this.dataSource.filter = filterValue
+    this.dataSource.filter = this.form.value.select
   }
 
   public getBreeds(): void {

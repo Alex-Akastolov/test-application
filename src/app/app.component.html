@@ -11,7 +11,7 @@
       <mat-form-field appearance="fill" class="select">
         <mat-label>Chose the breed</mat-label>
         <mat-select #input formControlName="select">
-          <mat-option #name (click)="applyFilter()" *ngFor="let breed of breeds" [value]="breed.id">
+          <mat-option (click)="applyFilter()" *ngFor="let breed of breeds" [value]="breed.reference_image_id">
             {{breed.name}}
           </mat-option>
         </mat-select>
