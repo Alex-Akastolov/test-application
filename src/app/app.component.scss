@@ -1,0 +1,46 @@
+.body {
+  background-image: url("../assets/images/bg-img.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
+
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.row {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: Roboto, serif;
+  font-size: 18px;
+}
+
+.header {
+  background: #212121;
+}
+
+.image {
+  max-width: 250px;
+}
+
+.select {
+  margin-top: 10px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
