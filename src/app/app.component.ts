@@ -37,7 +37,6 @@ export class AppComponent implements OnInit {
     this.httpService.getBreed().subscribe({
       next: (res: any) => {
         this.breeds = res
-        // console.log(this.breeds)
         this.dataSource = new MatTableDataSource<ResponseInterface>(res)
         this.dataSource.paginator = this.paginator
         this.dataSource.sort = this.sort
